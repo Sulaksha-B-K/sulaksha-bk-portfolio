@@ -72,7 +72,7 @@ const Services = () => {
               </button>
 
               <div className="modalHeader">
-                <h2 className="modalTitle">📝 What I Do</h2>
+                <h2 className="modalTitle">📝 Whadsft I Do</h2>
                 <p className="modalSubtitle">
                   I'm a Full Stack Developer (GET) at Sona BLW Precision Forgings, Chennai, Tamil Nadu, India.
                 </p>
