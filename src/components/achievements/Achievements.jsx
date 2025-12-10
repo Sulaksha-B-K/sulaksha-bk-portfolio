@@ -4,31 +4,31 @@ import "./achievements.scss";
 
 const achievementsData = [
   {
-    img: "/achievements/R5.gif",
+    img: "./achievements/R5.gif",
     author: "SULAKSHA",
     title: "WEBSITE REPLICATION",
     topic: "AWARD",
     desc: "Secured 1st prize for recreating a fully functioning website purely by observing its output design, matching its layout, interactions, and user experience with precision.",
-    popup: "/achievements/website_replication_award.jpg",
+    popup: "./achievements/website_replication_award.jpg",
   },
   {
-    img: "/achievements/R6.gif",
+    img: "./achievements/R6.gif",
     author: "SULAKSHA",
     title: "PROJECT DEMO",
     topic: "AWARD",
     desc: "Presented my project concept to industry investors and delivered a live demonstration highlighting its real-world value and technical capability.",
-    popup: "/achievements/project_demo_award.jpg",
+    popup: "./achievements/project_demo_award.jpg",
   },
   {
-    img: "/achievements/R7.gif",
+    img: "./achievements/R7.gif",
     author: "SULAKSHA",
     title: "BEST PROJECT",
     topic: "AWARD",
     desc: "Developed and showcased a project that earned the Best Project recognition at the department level for innovation and execution.",
-    popup: "/achievements/best_project_award.jpg",
+    popup: "./achievements/best_project_award.jpg",
   },
   {
-    img: "/achievements/R4.gif",
+    img: "./achievements/R4.gif",
     author: "SULAKSHA",
     title: "DEPRESSION DETECTION IN SOCIAL MEDIA TEXT",
     topic: "RESEARCH",
@@ -36,7 +36,7 @@ const achievementsData = [
     popup: "https://aclanthology.org/2023.ltedi-1.19/",
   },
   {
-    img: "/achievements/R2.gif",
+    img: "./achievements/R2.gif",
     author: "SULAKSHA",
     title: "SARCASM DETECTION IN DRAVIDIAN LANGUAGES",
     topic: "RESEARCH",
@@ -44,7 +44,7 @@ const achievementsData = [
     popup: "https://ceur-ws.org/Vol-4054/T4-6.pdf",
   },
   {
-    img: "/achievements/R3.gif",
+    img: "./achievements/R3.gif",
     author: "SULAKSHA",
     title: "DRIVER DROWSINESS DETECTION",
     topic: "RESEARCH",

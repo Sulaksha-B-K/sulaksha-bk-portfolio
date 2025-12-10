@@ -51,7 +51,7 @@ const Hero = () => {
           <motion.div variants={textVariants} className="buttons">
             {/* Download Resume */}
             <motion.a
-              href="/Sulaksha_B_K_Resume.pdf" // put PDF in public folder
+              href="./Sulaksha_B_K_Resume.pdf" // put PDF in public folder
               download
               style={{
                 backgroundColor: "#13ebfa",
@@ -98,7 +98,7 @@ const Hero = () => {
           <motion.img
             variants={textVariants}
             animate="scrollButton"
-            src="/scroll.png"
+            src="./scroll.png"
             alt="scroll"
           />
         </motion.div>
@@ -106,7 +106,7 @@ const Hero = () => {
 
       <div className="imageContainer">
         <motion.img
-  src="/hero.png"
+  src="./hero.png"
   alt="hero"
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}

@@ -102,7 +102,7 @@ const Contact = () => {
       ↑ Back to Top
     </a>
  <a 
-    href="/Sulaksha_B_K_Resume.pdf"
+    href="./Sulaksha_B_K_Resume.pdf"
     download
     className="footer-resume"
   >

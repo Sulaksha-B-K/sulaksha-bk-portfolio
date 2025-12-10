@@ -4,16 +4,16 @@
 /* ROOT CONTAINER FOR STICKY FOOTER + AUTO SCROLL */
 .contactSection {
   background: #0b062e;
-  background-image: url("/stars.png");
+  background-image: url("./stars.png");
 
   display: flex;
   flex-direction: column;
 
-  height: 100vh;                  /* ⭐ exact screen height */
+  height: 100vh;                  
   width: 100%;
   padding-top: 120px;
 
-  overflow-y: auto;               /* ⭐ allows scrolling when content is taller */
+  overflow-y: auto;              
   overflow-x: hidden;             /* avoid sideways scroll */
 }
 

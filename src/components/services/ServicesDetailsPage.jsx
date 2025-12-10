@@ -19,22 +19,22 @@ const ServicesDetailsPage = () => {
 
       <ul className="honeycomb">
         <li className="honeycomb-cell">
-          <img className="honeycomb-cell_img" src="/gifs/mern.gif" alt="MERN" />
+          <img className="honeycomb-cell_img" src="./gifs/mern.gif" alt="MERN" />
           <div className="honeycomb-cell_title">MERN Migration</div>
         </li>
 
         <li className="honeycomb-cell">
-          <img className="honeycomb-cell_img" src="/gifs/malware.gif" alt="Malware" />
+          <img className="honeycomb-cell_img" src="./gifs/malware.gif" alt="Malware" />
           <div className="honeycomb-cell_title">USB Malware Scanner</div>
         </li>
 
         <li className="honeycomb-cell">
-          <img className="honeycomb-cell_img" src="/gifs/automation.gif" alt="Automation" />
+          <img className="honeycomb-cell_img" src="./gifs/automation.gif" alt="Automation" />
           <div className="honeycomb-cell_title">Automation Tool</div>
         </li>
 
         <li className="honeycomb-cell">
-          <img className="honeycomb-cell_img" src="/gifs/portal.gif" alt="Portal" />
+          <img className="honeycomb-cell_img" src="./gifs/portal.gif" alt="Portal" />
           <div className="honeycomb-cell_title">Portal Enhancements</div>
         </li>
 
