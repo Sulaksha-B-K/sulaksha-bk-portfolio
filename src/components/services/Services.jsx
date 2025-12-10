@@ -81,22 +81,22 @@ const Services = () => {
               <div className="honeycombGrid">
                 <ul className="honeycomb">
                   <li className="honeycomb-cell hex-mern">
-                    <img className="honeycomb-cell_img" src="/mern.gif" alt="MERN" />
+                    <img className="honeycomb-cell_img" src="./mern.gif" alt="MERN" />
                     <div className="honeycomb-cell_title">MERN Stack Development</div>
                   </li>
 
                   <li className="honeycomb-cell hex-aiml">
-                    <img className="honeycomb-cell_img" src="/aiml.gif" alt="AI/ML" />
+                    <img className="honeycomb-cell_img" src="./aiml.gif" alt="AI/ML" />
                     <div className="honeycomb-cell_title">AI & Machine Learning Engineering</div>
                   </li>
 
                   <li className="honeycomb-cell hex-python">
-                    <img className="honeycomb-cell_img" src="/py.gif" alt="Python" />
+                    <img className="honeycomb-cell_img" src="./py.gif" alt="Python" />
                     <div className="honeycomb-cell_title">Python Automation & App Development</div>
                   </li>
 
                   <li className="honeycomb-cell hex-powerbi">
-                    <img className="honeycomb-cell_img" src="/bi.gif" alt="BI Tools" />
+                    <img className="honeycomb-cell_img" src="./bi.gif" alt="BI Tools" />
                     <div className="honeycomb-cell_title">Power BI & Data Visualization</div>
                   </li>
                 </ul>
