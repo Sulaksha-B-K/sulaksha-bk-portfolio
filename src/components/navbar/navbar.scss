@@ -1,0 +1,96 @@
+//src\components\navbar\navbar.scss
+@import "../../app.scss";
+
+.navbar {
+  height: 80px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #0c0c1d, #111132);
+  position: fixed;        // ✅ make navbar fixed
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;          // ✅ stay above other elements
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); // small shadow for clarity
+
+  .wrapper {
+    max-width: 1366px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    span {
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+
+      @include mobile {
+        font-size: 16px;  // ✅ smaller font for mobile
+        max-width: 70%;   // ✅ prevent text overlap
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .navLinks {
+      display: flex;
+      gap: 30px;
+
+      a {
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: rebeccapurple;
+        }
+
+        &.active {
+          color: rebeccapurple;
+          font-weight: bold;
+        }
+      }
+
+      @include mobile {
+        display: none; // ✅ hide links on mobile
+      }
+    }
+  }
+.mobileMenu {
+  display: none;
+
+  @include mobile {
+    padding: 0 9%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 18px;   // ✅ better size
+    height: 14px;
+    cursor: pointer;
+
+    .hamburger {
+      width: 50%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      span {
+        display: block;
+        height: 2px;
+        background: white;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+
+}

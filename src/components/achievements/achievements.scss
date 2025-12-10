@@ -1,0 +1,338 @@
+@import "../../app.scss"; 
+
+/* MAIN SECTION */
+#AchievementsContent {
+  background: #0b062e;
+  background-image: url("/stars.png");
+  padding: 80px 0;
+}
+
+.achievements-wrapper {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+/* ==========================================================
+   AUTO-RESPONSIVE CARD SIZE
+========================================================== */
+:root {
+  --card-width: clamp(160px, 24vw, 280px);
+  --card-height: calc(var(--card-width) * 0.68);
+}
+
+/* ==========================================================
+   COVERFLOW — DYNAMIC HEIGHT (Fixes multiple rows)
+========================================================== */
+.coverflow {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+
+  /* Dynamic height → ALWAYS fits 3D layout */
+  height: calc(var(--card-height) + 140px);
+
+  margin: 0 auto 40px;
+  perspective: 1300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: visible;
+}
+
+/* ==========================================================
+   CARD BASE
+========================================================== */
+.card {
+  position: absolute;
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.55s ease, opacity 0.4s ease;
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================
+   RESPONSIVE SPACING SYSTEM (Equal gap always)
+========================================================== */
+$gap1: 1.18;  /* left/right spacing */
+$gap2: 2.36;  /* l2/r2 spacing */
+
+/* --- ACTIVE CARD (center) --- */
+.card.active {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg) scale(1);
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* --- 1 left --- */
+.card.left {
+  transform: rotateY(46deg)
+    translateX(calc(-1 * #{$gap1} * var(--card-width)))
+    translateZ(-35px)
+    scale(0.93);
+  opacity: 0.75;
+  z-index: 4;
+}
+
+/* --- 1 right --- */
+.card.right {
+  transform: rotateY(-46deg)
+    translateX(calc(#{$gap1} * var(--card-width)))
+    translateZ(-35px)
+    scale(0.93);
+  opacity: 0.75;
+  z-index: 4;
+}
+
+/* --- 2 left --- */
+.card.l2 {
+  transform: rotateY(62deg)
+    translateX(calc(-1 * #{$gap2} * var(--card-width)))
+    translateZ(-90px)
+    scale(0.86);
+  opacity: 0.35;
+  z-index: 3;
+}
+
+/* --- 2 right --- */
+.card.r2 {
+  transform: rotateY(-62deg)
+    translateX(calc(#{$gap2} * var(--card-width)))
+    translateZ(-90px)
+    scale(0.86);
+  opacity: 0.35;
+  z-index: 3;
+}
+
+/* --- hidden (anything beyond 2-away) --- */
+.card.hidden {
+  opacity: 0;
+  transform: translateZ(-350px) scale(0.5);
+}
+
+/* ==========================================================
+   OVERLAY
+========================================================== */
+.card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.overlay .topic {
+  background: #fff;
+  color: #13ebfa;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  width: fit-content;
+}
+
+.overlay .title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   NAV BUTTONS
+========================================================== */
+.nav {
+  margin-top: -80px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.nav button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #13ebfa;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nav button:hover {
+  background: #13ebfa;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================
+   DESCRIPTION AREA
+========================================================== */
+.desc-area {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.desc-area h2 {
+  margin-top: 4px;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.desc-area p {
+  color: #dcdcdc;
+  font-size: 1rem;
+}
+
+/* ==========================================================
+   RESPONSIVE FIXES — NO OVERLAP EVER
+========================================================== */
+
+/* Phones */
+@media (max-width: 600px) {
+  :root {
+    --card-width: clamp(140px, 60vw, 200px);
+  }
+
+  /* Reduce rotations — prevents multiple rows */
+  .card.left,
+  .card.right {
+    transform: translateX(calc(var(--card-width) * -0.9))
+      rotateY(36deg)
+      translateZ(-20px)
+      scale(0.9);
+  }
+
+  .card.right {
+    transform: translateX(calc(var(--card-width) * 0.9))
+      rotateY(-36deg)
+      translateZ(-20px)
+      scale(0.9);
+  }
+
+  .card.l2,
+  .card.r2 {
+    transform: translateX(calc(var(--card-width) * -1.8))
+      rotateY(50deg)
+      translateZ(-60px)
+      scale(0.8);
+  }
+
+  .card.r2 {
+    transform: translateX(calc(var(--card-width) * 1.8))
+      rotateY(-50deg)
+      translateZ(-60px)
+      scale(0.8);
+  }
+}
+
+/* Tablet portrait */
+@media (min-width: 600px) and (max-width: 1024px) {
+  :root {
+    --card-width: clamp(180px, 36vw, 240px);
+  }
+}
+
+/* Tablet landscape / small desktops */
+@media (min-width: 1024px) and (max-width: 1400px) {
+  :root {
+    --card-width: clamp(210px, 26vw, 260px);
+  }
+}
+
+/* ============================================
+   FIX: Make arrows clickable again
+============================================ */
+.card {
+  pointer-events: none;  
+}
+
+.card.active {
+  pointer-events: auto;
+}
+
+.nav button {
+  position: relative;
+  z-index: 9999;
+}
+
+/* ===========================
+   MODAL POPUP
+=========================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-content {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.pdf-frame {
+  width: 80vw;
+  height: 80vh;
+  border: none;
+}
+
+/* ===========================
+   LINK ICON BESIDE TITLE
+=========================== */
+.openLinkIcon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #13ebfa;
+  transition: 0.2s;
+
+  &:hover {
+    text-shadow: 0 0 8px #13ebfa;
+  }
+}

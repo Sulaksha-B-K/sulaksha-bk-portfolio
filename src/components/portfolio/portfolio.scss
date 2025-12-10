@@ -1,0 +1,174 @@
+@import "../../app.scss";
+
+.portfolio {
+  position: relative;
+  padding-top: 18px;
+  background: #0b062e;
+  background-image: url("/stars.png"); // ✅ ensures navbar doesn’t overlap
+
+
+/* =======================================
+   CERTIFICATE IMAGE — RED BOX SIZE
+======================================= */
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.imageContainer img {
+  width: 62%;             /* FINAL SIZE — MATCHES RED BOX */
+  height: auto;
+  border-radius: 12px;
+  margin-top: 120px;
+  object-fit: contain !important;
+}
+
+/* Remove or override old scaling */
+.wrapper .imageContainer img {
+  width: 75% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+
+  .certBtn {
+  background-color: #00e1ff !important;
+  color: #111 !important;
+}
+.certColor h1 {
+  color: #00e1ff !important;
+  
+}
+
+.certBtn:hover {
+  background-color: #02acc3 !important;
+  transform: scale(1.05);
+}
+
+  .progress {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding-top: 70px;
+    text-align: center;
+    color: orange;
+    font-size: 36px;
+    z-index: 10;
+
+    @include mobile {
+      padding-top: 85px;
+      font-size: 24px;
+      padding-bottom: 70px;
+    }
+
+    .progressBar {
+      height: 5px;
+      background-color: white;
+      
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 40px 20px;
+
+    .wrapper {
+      max-width: 1366px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .imageContainer {
+        flex: 1;
+        max-height: 150px;
+
+        @include mobile {
+          width: 100%;
+          max-height: 300px;
+        }
+
+        img {
+          padding-top: 10px;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 12px;
+
+          @include mobile {
+            object-fit: contain;
+          }
+        }
+      }
+
+      .textContainer {
+        padding-top: 50px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include mobile {
+          transform: none !important;
+          padding: 10px;
+          align-items: center;
+          text-align: center;
+        }
+
+        h2 {
+          font-size: 56px;
+          color: white;
+
+          @include mobile {
+            font-size: 28px;
+            
+
+          }
+        }
+
+        p {
+          color: #bbb;
+          font-size: 18px;
+          line-height: 1.6;
+
+          @include mobile {
+            font-size: 14px;
+          }
+        }
+
+        button {
+          background-color: orange;
+          border: none;
+          border-radius: 10px;
+          padding: 12px;
+          width: fit-content;
+          min-width: 160px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          color: #111;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: darkorange;
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}

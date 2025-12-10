@@ -1,0 +1,82 @@
+//src\components\parallax\parallax.scss
+@import "../../app.scss";
+
+.parallax {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  h1 {
+    font-size: 100px;
+
+    @include mobile {
+      font-size: 72px;
+      text-align: center;
+    }
+  }
+
+  .mountains {
+    background-image: url("/mountains2.png");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height:120%;
+    position: absolute;
+    z-index: 3;
+
+    @include mobile {
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  .planets {
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    @include mobile {
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  .stars {
+    background-image: url("/stars.png");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  .trophies {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.15; // subtle trophy in background
+}
+
+.parallax h1 {
+  font-size: 100px;
+
+  // Gold gradient for achievements title
+  background: linear-gradient(90deg, gold, orange, #ffcc70);
+  // -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @include mobile {
+    font-size: 72px;
+    text-align: center;
+  }
+}
+
+}

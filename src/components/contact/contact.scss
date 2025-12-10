@@ -1,0 +1,170 @@
+@import "../../app.scss";
+
+/* ROOT CONTAINER FOR STICKY FOOTER */
+/* ROOT CONTAINER FOR STICKY FOOTER + AUTO SCROLL */
+.contactSection {
+  background: #0b062e;
+  background-image: url("/stars.png");
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;                  /* ⭐ exact screen height */
+  width: 100%;
+  padding-top: 120px;
+
+  overflow-y: auto;               /* ⭐ allows scrolling when content is taller */
+  overflow-x: hidden;             /* avoid sideways scroll */
+}
+
+
+/* MAIN CONTACT CONTENT */
+.contact {
+  flex: 1;                         /* ⭐ pushes footer to bottom */
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+    padding: 0 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* LEFT CONTENT */
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h1 {
+    font-size: 46px;
+
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #00f5ff;
+  }
+
+  a,
+  span {
+    font-size: 16px;
+    color: white;
+  }
+}
+
+/* RIGHT FORM SECTION */
+.formContainer {
+  flex: 1;
+  max-width: 420px;
+  width: 100%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    input,
+    textarea {
+      padding: 16px;
+      background: #0b062e;
+      border: 1px solid white;
+      color: white;
+      border-radius: 6px;
+      font-size: 16px;
+
+      @include mobile {
+        padding: 14px;
+        font-size: 14px;
+      }
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button {
+      padding: 16px;
+      background: #00fff2;
+      border-radius: 6px;
+      font-size: 17px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background: #00c7c0;
+      }
+
+      @include mobile {
+        padding: 14px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+/* FOOTER */
+.footer {
+  width: 100%;
+  background: #0b062e;
+  padding: 25px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* ⭐ Footer stays at bottom ALWAYS because parent uses flex + flex:1 hack */
+
+  .footerContent {
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+  }
+
+  .footerText {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+
+    .heart {
+      color: #ff4b8a;
+    }
+  }
+
+  .backToTopLink {
+    color: #00fff2;
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover {
+      color: #13ebfa;
+      text-shadow: 0 0 6px #00fff2;
+    }
+  }
+}
