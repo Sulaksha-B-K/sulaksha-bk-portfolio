@@ -3,7 +3,7 @@
 /* ROOT CONTAINER FOR STICKY FOOTER */
 /* ROOT CONTAINER FOR STICKY FOOTER + AUTO SCROLL */
 .contactSection {
-  background: #0b062e;
+    background: linear-gradient(180deg, #0c0c1d, #111132);
   background-image: url("/stars.png");
 
   display: flex;
@@ -85,7 +85,7 @@
     input,
     textarea {
       padding: 16px;
-      background: #0b062e;
+        background: linear-gradient(180deg, #0c0c1d, #111132);
       border: 1px solid white;
       color: white;
       border-radius: 6px;

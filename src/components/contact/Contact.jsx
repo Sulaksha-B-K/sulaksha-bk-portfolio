@@ -7,6 +7,11 @@ const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
+  const scrollToServices = () => {
+    const section = document.getElementById("Services");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="contactSection">
 
@@ -18,16 +23,48 @@ const Contact = () => {
       >
         {/* LEFT */}
         <div className="textContainer">
-          <h1>A steady catalyst in progress for your next big build.</h1>
+
+          {/* ✅ MAIN TAGLINE NOW A CLICKABLE LINK */}
+          <h1
+            className="clickableTagline"
+            onClick={scrollToServices}
+          >
+            A steady catalyst in progress for your next big build.
+          </h1>
 
           <div className="item">
-            <h2>Mail</h2>
-            <a href="mailto:sulaksha.b.k@gmail.com">sulaksha.b.k@gmail.com</a>
+
+            {/* ✅ CLICKABLE EMAIL HEADER */}
+            <h2
+              onClick={() =>
+                (window.location.href = "mailto:sulaksha.b.k@gmail.com")
+              }
+              className="clickableHeader"
+            >
+              Email
+            </h2>
+
+            <a href="mailto:sulaksha.b.k@gmail.com">
+              sulaksha.b.k@gmail.com
+            </a>
           </div>
 
           <div className="item">
-            <h2>LinkedIn</h2>
-            <a href="https://linkedin.com/in/sulaksha-b-k" target="_blank">
+
+            {/* ✅ CLICKABLE LINKEDIN HEADER */}
+            <h2
+              onClick={() =>
+                window.open("https://linkedin.com/in/sulaksha-b-k", "_blank")
+              }
+              className="clickableHeader"
+            >
+              LinkedIn
+            </h2>
+
+            <a
+              href="https://linkedin.com/in/sulaksha-b-k"
+              target="_blank"
+            >
               linkedin.com/in/sulaksha-b-k
             </a>
           </div>
@@ -85,33 +122,32 @@ const Contact = () => {
         </div>
       </motion.div>
 
-{/* FOOTER */}
-<footer className="footer">
-  <div className="footerContent">
+      {/* FOOTER */}
+      <footer className="footer">
+        <div className="footerContent">
 
-    <p className="footerText">
-      © {new Date().getFullYear()} Sulaksha B K • All Rights Reserved • Made with 
-      <span className="heart"> ♥ </span> 
-      by <strong>Sulaksha</strong>
-    </p>
+          <p className="footerText">
+            © {new Date().getFullYear()} Sulaksha B K • All Rights Reserved • Made with 
+            <span className="heart"> ♥ </span> 
+            by <strong>Sulaksha</strong>
+          </p>
 
-    <a
-      className="backToTopLink"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-    >
-      ↑ Back to Top
-    </a>
- <a 
-    href="./Sulaksha_B_K_Resume.pdf"
-    download
-    className="footer-resume"
-  >
-    Download Resume
-  </a>
-  </div>
-</footer>
+          <a
+            className="backToTopLink"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            ↑ Back to Top
+          </a>
 
-
+          <a 
+            href="./Sulaksha_B_K_Resume.pdf"
+            download
+            className="footer-resume"
+          >
+            Download Resume
+          </a>
+        </div>
+      </footer>
 
     </div>
   );

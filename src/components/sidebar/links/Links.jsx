@@ -28,7 +28,7 @@ const navMap = [
   { label: "Connect", target: "Contact" },
 ];
 
-const Links = () => {
+const Links = ({ setOpen }) => {
   return (
     <motion.div className="links" variants={variants}>
       {navMap.map((item) => (
@@ -38,6 +38,7 @@ const Links = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setOpen(false)}   // ⭐ close menu
         >
           {item.label}
         </motion.a>
@@ -45,5 +46,6 @@ const Links = () => {
     </motion.div>
   );
 };
+
 
 export default Links;

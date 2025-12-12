@@ -55,10 +55,8 @@ const achievementsData = [
 
 const Achievements = () => {
   const [active, setActive] = useState(0);
-  const len = achievementsData.length;
-
-  // Modal State
   const [modal, setModal] = useState(null);
+  const len = achievementsData.length;
 
   const next = () => setActive((i) => (i + 1) % len);
   const prev = () => setActive((i) => (i - 1 + len) % len);
@@ -79,19 +77,17 @@ const Achievements = () => {
 
   const current = achievementsData[active];
 
-  // Handle icon click
-  const openAchievement = () => {
-    if (!current.popup) return;
+  // ⭐ UNIVERSAL OPEN HANDLER (card, title, description, icon)
+  const openAchievement = (item) => {
+    if (!item.popup) return;
 
-    if (current.topic === "RESEARCH") {
-      // Open external research link normally
-      window.open(current.popup, "_blank", "noopener,noreferrer");
+    if (item.topic === "RESEARCH") {
+      window.open(item.popup, "_blank", "noopener,noreferrer");
     } else {
-      // Open modal popup for AWARD images
       setModal({
         type: "image",
-        src: current.popup,
-        title: current.title,
+        src: item.popup,
+        title: item.title,
       });
     }
   };
@@ -99,10 +95,15 @@ const Achievements = () => {
   return (
     <div className="achievements-wrapper">
 
-      {/* COVERFLOW */}
+      {/* COVERFLOW — clickable whole card */}
       <div className="coverflow">
         {achievementsData.map((item, i) => (
-          <div key={i} className={getClass(i)}>
+          <div
+            key={i}
+            className={getClass(i)}
+            onClick={() => openAchievement(item)}     // ⭐ CLICK CARD
+            style={{ cursor: "pointer" }}
+          >
             <img src={item.img} alt={item.title} />
             <div className="overlay">
               <div className="topic">{item.topic}</div>
@@ -118,23 +119,32 @@ const Achievements = () => {
         <button onClick={next}>{">"}</button>
       </div>
 
-      {/* DESCRIPTION */}
-      <div className="desc-area">
+      {/* DESCRIPTION — also clickable */}
+      <div
+        className="desc-area"
+        onClick={() => openAchievement(current)}   // ⭐ CLICK DESCRIPTION
+        style={{ cursor: "pointer" }}
+      >
         <h2>
           {current.title}
-          <span className="openLinkIcon" onClick={openAchievement}>🔗</span>
+          <span
+            className="openLinkIcon"
+            onClick={(e) => {
+              e.stopPropagation(); // avoid triggering parent click
+              openAchievement(current);
+            }}
+          >
+            🔗
+          </span>
         </h2>
         <p>{current.desc}</p>
       </div>
 
-      {/* MODAL POPUP FOR AWARD IMAGES */}
+      {/* MODAL */}
       {modal && modal.type === "image" && (
         <div className="modal-overlay" onClick={() => setModal(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={() => setModal(null)}>
-              ✕
-            </button>
-
+            <button className="close-btn" onClick={() => setModal(null)}>✕</button>
             <img className="popup-image" src={modal.src} alt={modal.title} />
           </div>
         </div>

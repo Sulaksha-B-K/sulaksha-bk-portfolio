@@ -27,15 +27,15 @@ const Sidebar = ({ open, setOpen }) => {
   return (
     <motion.div className="sidebar" animate={open ? "open" : "closed"}>
       <motion.div className="bg" variants={variants}>
-        <Links />
+        <Links setOpen={setOpen} />  {/* ⭐ pass setOpen */}
       </motion.div>
-     {/* Show toggle only on mobile screens */}
-<div className="toggleOnlyMobile">
-  <ToggleButton setOpen={setOpen} />
-</div>
 
+      <div className="toggleOnlyMobile">
+        <ToggleButton setOpen={setOpen} />
+      </div>
     </motion.div>
   );
 };
+
 
 export default Sidebar;
